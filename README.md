@@ -6,6 +6,12 @@ from [Troll Research station](https://docs.data.npolar.no/api/#/record/get_datas
 
 <img width="728" height="408" alt="Screenshot 2025-12-09 at 12 11 37" src="https://github.com/user-attachments/assets/1524afac-6a0c-4880-86a7-8b7a61b5f3a5" />
 
+Technologies used
+
+* [Astro](https://astro.build/) web framework
+* [D3js](https://d3js.org/) for graphs
+* [Tailwind](https://tailwindcss.com/) for styling
+* [Maplibre](https://maplibre.org/maplibre-gl-js/docs/) for maps
 
 ## 🧞 Commands
 
