@@ -1,16 +1,145 @@
 ---
-
+import Card from "~/components/Card.astro"
+import Layout from "~/layouts/Layout.astro"
+import BatteryFull from "~/components/icons/battery-full.svg"
+import Fan from "~/components/icons/fan.svg"
+import Connection from "~/components/icons/Connection.astro"
+import Sun from "~/components/icons/Sun.astro"
+import Bar from "~/components/icons/Bar.astro"
+import Drop from "~/components/icons/Drop.astro"
+import Arrow from "~/components/icons/Arrow.astro"
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<style>
+@reference "../styles/global.css"
+
+main {
+  width: 1100px;
+}
+
+#map {
+  width: 284px;
+  height:400px;
+}
+
+.skeleton {
+  @apply w-7 h-1.5 animate-pulse bg-gray-300 rounded-full;
+}
+</style>
+
+<Layout>
+  <main class="mx-auto w-fit py-8">
+    <div class="flex gap-4 mb-4">
+      <Card class:list={["grow"]}>
+
+        <div class="flex items-baseline gap-2 mb-1">
+          <h2 class="font-bold text-xl">Troll research station</h2>
+        </div>
+
+        <div class="flex gap-8 justify-evenly">
+
+          <div class="px-0 py-0 flex gap-2 items-end">
+            <Sun class="w-10 text-yellow-500 stroke-2" />
+            <div>
+              <h4 class="text-sm text-slate-700">Temperature</h4>
+              <div class="flex gap-1 justify-end font-bold text-xl">
+                <span id="current-temperature" class="skeleton self-center"></span>
+                <span>℃</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-0 py-0 flex gap-2 items-end">
+            <Bar class="w-10 text-indigo-500 stroke-1" />
+            <div>
+              <h4 class="text-sm text-slate-700">Air pressure</h4>
+              <div class="flex gap-1 justify-end font-bold text-xl">
+                <span id="current-pressure" class="skeleton self-center"></span>
+                <span>hPa</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-0 py-0 flex gap-2 items-end">
+            <Drop class="w-10 text-sky-600" />
+            <div>
+              <h4 class="text-sm text-slate-700">Rel. humidity</h4>
+              <div class="flex gap-1 justify-end font-bold text-xl">
+                <span id="current-humidity" class="skeleton self-center"></span>
+                <span>%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-0 py-0 flex gap-2 items-end">
+            <div id="current-wind-direction" class="border-2 rounded-full ">
+              <Arrow class="w-7 text-slate-600" />
+            </div>
+            <div>
+              <h4 class="text-sm text-slate-700">Wind</h4>
+              <div class="flex justify-end gap-1 font-bold text-xl">
+                <span id="current-wind-speed" class="skeleton self-center"></span>
+                <span>m/s</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </Card>
+
+
+      <Card class:list={"flex gap-2"}>
+        <div>
+          <h3 class="text-base font-semibold text-gray-800 mb-2">
+            Station status 
+          </h3>
+          <div class="flex gap-4">
+            <div class="bg-green-100 px-2 py-2 rounded-lg">
+              <Connection class="w-6 text-green-700 stroke-2" />
+            </div>
+            <div class="bg-green-100 px-2 py-2 rounded-lg">
+              <BatteryFull class="w-6 text-green-700 stroke-2" />
+            </div>
+            <div class="bg-green-100 px-2 py-2 rounded-lg">
+              <Fan class="w-6 text-green-700 stroke-2" />
+            </div>
+          </div>
+        </div>
+      </Card>
+    </div>
+
+    <div class="flex gap-4 items-start">
+      <Card class:list={["map-card"]}>
+        <div class="flex justify-between items-start content-baseline">
+          <div>
+          <h2 class="font-bold text-lg">Observations</h2>
+          <h3 class="font-semibold text-base italic text-slate-700">3-day historic data</h2>
+          </div>
+          <div class="inline-flex rounded-lg gap-2 bg-stone-200 text-sm p-1 font-semibold">
+            <button class="cursor-pointer bg-neutral-50 rounded-lg px-3 py-2">Graph</button>
+            <button class="cursor-pointer rounded-lg px-3 py-2">Table</button>
+          </div>
+        </div>
+
+        <svg width="700" height="400" class="plot">
+          <foreignObject x="0" y="10" width="210" height="100" class="tooltip" style="display: none;">
+            <div class="text-xs border shadow-md opacity-90 rounded-sm p-1 bg-neutral-50 z-50">
+              <p class="date font-semibold"></p>
+              <p>Temperature: <span class="temp font-mono text-blue-500 "></span>℃</p>
+              <p>Rel.humidity: <span class="humid font-mono text-green-700"></span>%</p>
+            </div>
+          </foreignObject>
+        </svg>
+        <script src="~/plot.ts"></script>
+      </Card>
+      <Card class:list={["grow"]}>
+        <h2 class="font-bold text-lg mb-2">Location</h2>
+        <div id="map" style="" class="rounded-lg border border-gray-300 mb-2">
+        </div>
+        <script src="~/map.ts"></script>
+      </Card>
+    </div>
+
+
+  </main>
+</Layout>
