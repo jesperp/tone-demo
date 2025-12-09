@@ -1,33 +1,15 @@
-# Astro Starter Kit: Minimal
+# TONe demo project
 
-```sh
-bun create astro@latest -- --template minimal
-```
+Demo project for [Norsk Polarinstitutt](https://npolar.no/), showcasing weather data 
+from [Troll Research station](https://docs.data.npolar.no/api/#/record/get_dataset__datasetID__record_)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-## 🚀 Project Structure
+<img width="728" height="408" alt="Screenshot 2025-12-09 at 12 11 37" src="https://github.com/user-attachments/assets/1524afac-6a0c-4880-86a7-8b7a61b5f3a5" />
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
 
 ## 🧞 Commands
 
-All commands are run from the root of the project, from a terminal:
+Make sure you have the latest version of [bun](https://bun.com/). All commands are run from the root of the project, from a terminal:
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
@@ -37,7 +19,3 @@ All commands are run from the root of the project, from a terminal:
 | `bun preview`         | Preview your build locally, before deploying     |
 | `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `bun astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
