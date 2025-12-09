@@ -9,7 +9,7 @@ from [Troll Research station](https://docs.data.npolar.no/api/#/record/get_datas
 
 ## 🧞 Commands
 
-Make sure you have the latest version of [bun](https://bun.com/). All commands are run from the root of the project, from a terminal:
+Make sure you have the latest version of [bun](https://bun.com/) installed. All commands are run from the root of the project, from a terminal:
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
@@ -19,3 +19,19 @@ Make sure you have the latest version of [bun](https://bun.com/). All commands a
 | `bun preview`         | Preview your build locally, before deploying     |
 | `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `bun astro -- --help` | Get help using the Astro CLI                     |
+
+## Limitations
+
+* Fetches weather data from hard coded dates
+* Client-side cache only (ie. slow first request)
+* Showing only plot/graph view (no table view)
+* Happy-path programming (not much error handling)
+
+## TODO
+
+* It would be nice to have a calendar picker to view historic data and not just last 3 days
+* NPolar data includes station data (ventilation status, battery voltage) that could be used (currently only showing placeholder icons.
+* Auto-update current conditions every minute
+* Graph features
+  - Zooming specific areas
+  - Picking which values to display (not just temp./humidity) 
